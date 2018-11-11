@@ -154,6 +154,16 @@ namespace CSharp.ExtensionMethods
         {
             return datetime.AddDays(-1);
         }
+        
+        public static int CalculateAge(this DateTime theDateTime)
+        {
+            var age = DateTime.Today.Year - theDateTime.Year;
+            //If birthday did not come in this year till today
+            if (theDateTime.AddYears(age) > DateTime.Today)
+                age--;
+
+            return age;
+        }
 
         #endregion
     }
